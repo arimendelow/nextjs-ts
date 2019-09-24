@@ -1,0 +1,1 @@
+Following the next.js tutorial, but attempting to do it with Typescript
