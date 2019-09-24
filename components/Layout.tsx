@@ -7,7 +7,7 @@ const layoutStyle = {
 	border: '1px solid #DDD'
 };
 
-
+// Add any optional children of props here
 type Props = {};
 
 const Layout: React.FunctionComponent<Props> = ({
