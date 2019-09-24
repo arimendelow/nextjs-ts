@@ -1,0 +1,20 @@
+{
+  "name": "nextjs-ts",
+  "version": "1.0.0",
+  "description": "Following the next.js tutorial, but attempting to do it with Typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arimendelow/nextjs-ts.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arimendelow/nextjs-ts/issues"
+  },
+  "homepage": "https://github.com/arimendelow/nextjs-ts#readme"
+}
