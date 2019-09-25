@@ -4,6 +4,7 @@ import * as React from 'react';
 
 import Layout from '../components/Layout';
 
+// Declare props as an object literal with an optional key, 'title', of type string
 type Props = {
 	title?: string
 };
