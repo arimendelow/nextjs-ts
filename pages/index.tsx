@@ -41,7 +41,6 @@ Index.getInitialProps = async function() {
 	return {
 		shows: data.map((entry: {show: object}) => {
 			const { show } = entry || {}
-			console.log(show)
 			return show
 		})
 	};
