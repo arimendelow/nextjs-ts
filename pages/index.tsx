@@ -6,15 +6,17 @@ import Layout from '../components/Layout';
 
 // Declare props as an object literal with an optional key, 'title', of type string
 type Props = {
-	title?: string
+	title?: string,
+	id?: string
 };
 
 const PostLink: React.FunctionComponent<Props> = ({
-	title = 'default title'
+	title = 'default title',
+	id = ''
 }) => (
 	<li>
-		<Link href={`/post?title=${title}`}>
-			<a>{title}</a>
+		<Link href="/p/[id]" as={`/p/${id}`}>
+			<a>{id}</a>
 		</Link>
 	</li>
 );
@@ -23,9 +25,9 @@ const Blog = () => (
 	<React.Fragment>
 		<h1>My Blog</h1>
 		<ul>
-			<PostLink title="Hello Next.js" />
-			<PostLink title="Learning Next.js is awesome" />
-			<PostLink title=" Deploy apps with Zeit" />
+			<PostLink id="hello-nextjs" />
+			<PostLink id="learn-nextjs" />
+			<PostLink id=" deploy-nextjs" />
 		</ul>
 	</React.Fragment>
 );
