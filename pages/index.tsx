@@ -15,6 +15,7 @@ const PostLink: React.FunctionComponent<Props> = ({
 	id = ''
 }) => (
 	<li>
+		{/* Need to add the 'as' prop to make dynamic routing work */}
 		<Link href="/p/[id]" as={`/p/${id}`}>
 			<a>{id}</a>
 		</Link>
