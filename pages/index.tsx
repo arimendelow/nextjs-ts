@@ -1,5 +1,6 @@
 // This is the Link API
 import Link from 'next/link';
+import * as React from 'react';
 
 import Layout from '../components/Layout';
 
@@ -8,7 +9,7 @@ type Props = {
 };
 
 const PostLink: React.FunctionComponent<Props> = ({
-	title = 'default title',
+	title = 'default title'
 }) => (
 	<li>
 		<Link href={`/post?title=${title}`}>
@@ -17,8 +18,16 @@ const PostLink: React.FunctionComponent<Props> = ({
 	</li>
 );
 
-const Index = () => (
-	<p>Hello Next.js</p>
+const Blog = () => (
+	<React.Fragment>
+		<h1>My Blog</h1>
+		<ul>
+			<PostLink title="Hello Next.js" />
+			<PostLink title="Learning Next.js is awesome" />
+			<PostLink title=" Deploy apps with Zeit" />
+		</ul>
+	</React.Fragment>
+
 );
 
-export default Layout(Index);
+export default Layout(Blog);
