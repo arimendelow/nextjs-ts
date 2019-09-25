@@ -28,7 +28,6 @@ const Blog = () => (
 			<PostLink title=" Deploy apps with Zeit" />
 		</ul>
 	</React.Fragment>
-
 );
 
 export default Layout(Blog);
