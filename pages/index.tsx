@@ -20,10 +20,10 @@ const Index: NextPage<Props> = ({
 	shows = []
 }) => (
 	<Layout>
-		<h1>Batman TV Shows</h1>
-		<ul>
+		<h1 className="font-bold text-5xl pb-5 text-center">Batman TV Shows</h1>
+		<ul className="text-center">
 			{shows.map(show => (
-				<li key={show.id}>
+				<li key={show.id} className="font-bold p-2 text-xl text-blue-900 underline">
 					<Link href="/p/[id]" as={`/p/${show.id}`}>
 						<a>{show.name}</a>
 					</Link>
