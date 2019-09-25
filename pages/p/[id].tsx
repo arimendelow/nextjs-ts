@@ -1,20 +1,53 @@
 // Note that the name of this file is in brackets - this makes it a dynamic route
 // Inside of the brackets, we put the name of the query param received by the page that we want to use
 
-import { useRouter } from 'next/router';
-import * as React from 'react';
+import fetch from 'isomorphic-unfetch';
+import { NextPage } from 'next';
 
 import Layout from '../../components/Layout';
 
-function Post() {
-	const router = useRouter();
-
-	return(
-		<Layout>
-			<h1>{router.query.id}</h1>
-			<p>This is where the blog post content will go.</p>
-		</Layout>
-	);
+type Show = {
+	id: number,
+	name: string,
+	summary: string,
+	image: {
+		medium: string,
+		original: string
+	}
 }
+
+type Props = {
+	show: Show
+};
+
+const Post: NextPage<Props> = ({
+	show = {
+		id: '',
+		name: '',
+		summary: '',
+		image: {
+			medium: '',
+			original: ''
+		}
+	}
+}) => (
+	<Layout>
+		<h1>{show.name}</h1>
+		<p>{show.summary.replace(/<[/]?p>/g, '')}</p>
+		<img src={show.image.medium} />
+	</Layout>
+);
+
+Post.getInitialProps = async function(context) {
+	const { query } = context;
+	const { id } = query;
+
+	const res = await fetch(`https://api.tvmaze.com/shows/${id}`);
+	const show = await res.json();
+
+	console.log(`Fetched show: ${show.name}`);
+
+	return { show };
+};
 
 export default Post;
