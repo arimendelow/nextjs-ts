@@ -32,9 +32,9 @@ const Post: NextPage<Props> = ({
 	}
 }) => (
 	<Layout>
-		<h1>{show.name}</h1>
+		<h1 className="text-2xl pb-5">{show.name}</h1>
 		<p>{show.summary.replace(/<[/]?p>/g, '')}</p>
-		<img src={show.image.medium} />
+		<img className="content-center m-auto shadow-lg" src={show.image.medium} />
 	</Layout>
 );
 
