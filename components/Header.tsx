@@ -5,7 +5,7 @@ const linkStyle = {
 };
 
 const Header = () => (
-	<div>
+	<div className="font-bold text-blue-900 p-10 pt-0">
 		<Link href="/">
 			<a style={linkStyle}>Home</a>
 		</Link>

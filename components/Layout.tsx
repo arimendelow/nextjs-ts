@@ -1,18 +1,13 @@
 import { NextPage } from 'next';
 import Header from './Header';
-
-const layoutStyle = {
-	margin: 20,
-	padding: 20,
-	border: '1px solid #DDD'
-};
+import '../styles/tailwind.src.css';
 
 type PageProps = {};
 
 const Layout: React.FunctionComponent<PageProps> = ({
 	children
 }) => (
-	<div style={layoutStyle}>
+	<div className="m-20 p-20 border border-red-800">
 		<Header />
 		{children}
 	</div>
