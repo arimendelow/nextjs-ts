@@ -6,6 +6,7 @@ import fetch from 'isomorphic-unfetch';
 
 import Layout from '../components/Layout';
 import { string } from 'prop-types';
+import '../styles/tailwind.src.css';
 
 type show = {
 	id: string,
