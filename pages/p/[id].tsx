@@ -1,3 +1,6 @@
+// Note that the name of this file is in brackets - this makes it a dynamic route
+// Inside of the brackets, we put the name of the query param received by the page that we want to use
+
 import { useRouter } from 'next/router';
 import * as React from 'react';
 
