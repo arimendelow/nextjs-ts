@@ -1,36 +1,46 @@
 // This is the Link API
 import Link from 'next/link';
 import * as React from 'react';
+import { NextPage } from 'next';
+import fetch from 'isomorphic-unfetch';
 
 import Layout from '../components/Layout';
+import { string } from 'prop-types';
 
-// Declare props as an object literal with an optional key, 'title', of type string
+type show = {
+	id: string,
+	name: string
+}
 type Props = {
-	title?: string,
-	id?: string
+	shows: Array<show>;
 };
 
-const PostLink: React.FunctionComponent<Props> = ({
-	title = 'default title',
-	id = ''
+const Index: NextPage<Props> = ({
+	shows = []
 }) => (
-	<li>
-		{/* Need to add the 'as' prop to make dynamic routing work */}
-		<Link href="/p/[id]" as={`/p/${id}`}>
-			<a>{id}</a>
-		</Link>
-	</li>
-);
-
-const Blog = () => (
 	<React.Fragment>
-		<h1>My Blog</h1>
+		<h1>Batman TV Shows</h1>
 		<ul>
-			<PostLink id="hello-nextjs" />
-			<PostLink id="learn-nextjs" />
-			<PostLink id=" deploy-nextjs" />
+			{shows.map(show => (
+				<li key={show.id}>
+					<Link href="/p/[id]" as={`/p/${show.id}`}>
+						<a>{show.name}</a>
+					</Link>
+				</li>
+			))}
 		</ul>
 	</React.Fragment>
 );
 
-export default Layout(Blog);
+Index.getInitialProps = async function() {
+	const res = await fetch('https://api.tvmaze.com/search/shows?q=batman');
+	const data = await res.json();
+	
+	console.log(`Show data fetched. Count: ${data.length}`);
+
+	return {
+		shows: data.map((entry: string) => console.log(entry))
+	};
+};
+
+export default Layout(Index);
