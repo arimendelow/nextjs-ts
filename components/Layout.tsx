@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { NextPage } from 'next';
 import Header from './Header';
 
 const layoutStyle = {
@@ -7,16 +7,13 @@ const layoutStyle = {
 	border: '1px solid #DDD'
 };
 
-// Add any optional children of props here
-type Props = {};
-
-const Layout: React.FunctionComponent<Props> = ({
-	children
-}) => (
-	<div style={layoutStyle}>
-		<Header />
-		{children}
-	</div>
-);
+const Layout = (Page: NextPage) => {
+	return () => (
+		<div style={layoutStyle}>
+			<Header />
+			<Page />
+		</div>
+	);
+};
 
 export default Layout;
