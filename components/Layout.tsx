@@ -7,9 +7,9 @@ const layoutStyle = {
 	border: '1px solid #DDD'
 };
 
-type Props = {};
+type PageProps = {};
 
-const Layout: React.FunctionComponent<Props> = ({
+const Layout: React.FunctionComponent<PageProps> = ({
 	children
 }) => (
 	<div style={layoutStyle}>

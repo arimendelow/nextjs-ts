@@ -39,7 +39,11 @@ Index.getInitialProps = async function() {
 	console.log(`Show data fetched. Count: ${data.length}`);
 
 	return {
-		shows: data.map((entry: string) => console.log(entry))
+		shows: data.map((entry: {show: object}) => {
+			const { show } = entry || {}
+			console.log(show)
+			return show
+		})
 	};
 };
 
