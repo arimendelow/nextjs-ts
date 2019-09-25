@@ -1,5 +1,6 @@
 import { NextPage } from 'next';
 import Header from './Header';
+import '../styles/tailwind.src.css';
 
 type PageProps = {};
 
