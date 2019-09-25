@@ -7,13 +7,15 @@ const layoutStyle = {
 	border: '1px solid #DDD'
 };
 
-const Layout = (Page: NextPage) => {
-	return () => (
-		<div style={layoutStyle}>
-			<Header />
-			<Page />
-		</div>
-	);
-};
+type Props = {};
+
+const Layout: React.FunctionComponent<Props> = ({
+	children
+}) => (
+	<div style={layoutStyle}>
+		<Header />
+		{children}
+	</div>
+);
 
 export default Layout;

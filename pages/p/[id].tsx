@@ -10,11 +10,11 @@ function Post() {
 	const router = useRouter();
 
 	return(
-		<React.Fragment>
+		<Layout>
 			<h1>{router.query.id}</h1>
 			<p>This is where the blog post content will go.</p>
-		</React.Fragment>
+		</Layout>
 	);
 }
 
-export default Layout(Post);
+export default Post;

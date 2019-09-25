@@ -18,7 +18,7 @@ type Props = {
 const Index: NextPage<Props> = ({
 	shows = []
 }) => (
-	<React.Fragment>
+	<Layout>
 		<h1>Batman TV Shows</h1>
 		<ul>
 			{shows.map(show => (
@@ -29,7 +29,7 @@ const Index: NextPage<Props> = ({
 				</li>
 			))}
 		</ul>
-	</React.Fragment>
+	</Layout>
 );
 
 Index.getInitialProps = async function() {
@@ -43,4 +43,4 @@ Index.getInitialProps = async function() {
 	};
 };
 
-export default Layout(Index);
+export default Index;

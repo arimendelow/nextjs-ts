@@ -1,18 +1,22 @@
-import Link from 'next/link';
+import * as React from 'react';
+import Header from './Header';
 
-const linkStyle = {
-	marginRight: 15
+const layoutStyle = {
+	margin: 20,
+	padding: 20,
+	border: '1px solid #DDD'
 };
 
-const Header = () => (
-	<div>
-		<Link href="/">
-			<a style={linkStyle}>Home</a>
-		</Link>
-		<Link href="/about">
-			<a style={linkStyle}>About</a>
-		</Link>
+// Add any optional children of props here
+type Props = {};
+
+const Layout: React.FunctionComponent<Props> = ({
+	children
+}) => (
+	<div style={layoutStyle}>
+		<Header />
+		{children}
 	</div>
 );
 
-export default Header
+export default Layout;
