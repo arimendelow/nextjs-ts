@@ -5,7 +5,6 @@ import { NextPage } from 'next';
 import fetch from 'isomorphic-unfetch';
 
 import Layout from '../components/Layout';
-import { string } from 'prop-types';
 
 type show = {
 	id: string,
