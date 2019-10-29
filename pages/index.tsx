@@ -1,20 +1,35 @@
 // This is the Link API
 import Link from 'next/link';
 import * as React from 'react';
-import { NextPage } from 'next';
+import { NextPage, NextPageContext, NextComponentType } from 'next';
 import fetch from 'isomorphic-unfetch';
 
 import '../styles/tailwind.src.css';
 
-type Props = {};
+import { compose } from 'recompose';
+import { connect } from 'react-redux';
+import Page from '../redux/containers/page';
+import { addTodo } from '../redux/actions';
+import { Store } from '../redux/store';
 
-const Index: NextPage<Props> = ({
-	// Props go here
-}) => (
-	<div className="h-screen w-screen table">
-		<h1 className="text-5xl text-center table-cell align-middle">Hello, world!</h1>
-	</div>
-);
+interface IndexPageContext extends NextPageContext {
+  store: Store;
+}
 
+const IndexPage: NextComponentType<IndexPageContext> = compose()(Page);
 
-export default Index;
+IndexPage.getInitialProps = ({ store, req }) => {
+  const isServer: boolean = !!req;
+
+  // we can add any custom data here
+  const { todo } = store.getState();
+  store.dispatch(addTodo(Object.assign(todo.item, {
+    value: 'Hello World!',
+  })));
+
+  return {
+    isServer,
+  };
+}
+
+export default connect()(IndexPage);
